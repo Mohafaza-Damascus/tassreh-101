@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#064239" />
+  <meta name="description" content="نموذج تقديم طلب تصريح حفر للجهات الحكومية المخولة." />
+
+  <link rel="icon" type="image/png" href="../assets/images/damascus-eagle.png" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <title>تصريح حفر | منصة تصريح</title>
+</head>
+
+<body class="shell">
+
+  <div class="workspace">
+
+    <header class="topbar">
+      <div class="brand">
+        <img src="../assets/images/logo.png" alt="شعار محافظة دمشق" />
+      </div>
+      <h1 class="page-title">تصريح حفر</h1>
+      <a class="back-link" href="../index.html">
+        <span aria-hidden="true">←</span> أنواع التصاريح
+      </a>
+    </header>
+
+    <main class="page">
+
+      <form class="form" data-permit-form="تصريح الحفر" data-permit-home="../index.html" novalidate>
+
+        <section class="card">
+          <div class="card-head">
+            <h2 class="card-title">
+              <img src="../assets/images/file-text-pineal-700.svg" alt="" />
+              بيانات مقدم الطلب
+            </h2>
+          </div>
+
+          <div class="grid">
+            <div class="field">
+              <label class="label" for="excavation_applicant">مقدم الطلب</label>
+              <select id="excavation_applicant" name="excavation_applicant" class="input">
+                <option value="" selected disabled>اختر مقدم الطلب</option>
+                <option value="water_company">شركة المياه</option>
+                <option value="electricity_company">شركة الكهرباء</option>
+                <option value="telephone_company">شركة الهاتف</option>
+                <option value="sanitation_company">شركة الصرف الصحي</option>
+                <option value="other">غير ذلك</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="label" for="excavation_location">تحديد موقع الحفر</label>
+              <div class="location">
+                <input id="excavation_location" name="excavation_location" class="input" type="text"
+                       placeholder="اكتب الموقع يدوياً أو اضغط زر الـ GPS"
+                       aria-describedby="gps_status" data-gps-target />
+                <button type="button" class="gps-btn" data-gps-button
+                        title="تحديد الموقع الحالي عبر GPS">
+                  <span aria-hidden="true">📍</span> تحديد عبر GPS
+                </button>
+              </div>
+              <span class="hint" id="gps_status" aria-live="polite" data-gps-status></span>
+            </div>
+
+            <div class="field field-wide">
+              <label class="label" for="excavation_reason">السبب</label>
+              <textarea id="excavation_reason" name="excavation_reason" class="input textarea"
+                        placeholder="اكتب سبب الحفر"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h2 class="card-title">
+              <img src="../assets/images/file-text-pineal-700.svg" alt="" />
+              مواصفات الحفر
+            </h2>
+          </div>
+
+          <div class="grid-3">
+            <div class="field">
+              <label class="label" for="excavation_height">الارتفاع</label>
+              <input id="excavation_height" name="excavation_height" class="input input-mono"
+                     type="number" min="0" step="0.01" placeholder="متر" />
+            </div>
+
+            <div class="field">
+              <label class="label" for="excavation_length">الطول</label>
+              <input id="excavation_length" name="excavation_length" class="input input-mono"
+                     type="number" min="0" step="0.01" placeholder="متر" />
+            </div>
+
+            <div class="field">
+              <label class="label" for="excavation_width">العرض</label>
+              <input id="excavation_width" name="excavation_width" class="input input-mono"
+                     type="number" min="0" step="0.01" placeholder="متر" />
+            </div>
+          </div>
+        </section>
+
+        <div class="actions">
+          <button type="reset" class="btn-ghost">إلغاء</button>
+          <button type="submit" class="btn-primary">
+            إرسال الطلب <span aria-hidden="true">✓</span>
+          </button>
+        </div>
+
+      </form>
+
+    </main>
+
+  </div>
+
+  <script src="../js/excavation.js"></script>
+</body>
+
+</html>

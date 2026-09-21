@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#064239" />
+  <meta name="description" content="نموذج تقديم طلب تصريح نقل الأنقاض." />
+
+  <link rel="icon" type="image/png" href="../assets/images/damascus-eagle.png" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <title>تصريح نقل الأنقاض | منصة تصريح</title>
+</head>
+
+<body class="shell">
+
+  <div class="workspace">
+
+    <header class="topbar">
+      <div class="brand">
+        <img src="../assets/images/logo.png" alt="شعار محافظة دمشق" />
+      </div>
+      <h1 class="page-title">تصريح نقل الأنقاض</h1>
+      <a class="back-link" href="../index.html">
+        <span aria-hidden="true">←</span> أنواع التصاريح
+      </a>
+    </header>
+
+    <main class="page">
+
+      <nav class="stepper" aria-label="مراحل تصريح نقل الأنقاض">
+        <div class="stepper-line" aria-hidden="true"><span data-step-progress></span></div>
+
+        <button type="button" class="stepper-item" data-step-target="1">
+          <span class="stepper-number">01</span>
+          <span class="stepper-copy"><strong>بيانات الطلب</strong><small>المعلومات الأساسية</small></span>
+        </button>
+
+        <button type="button" class="stepper-item" data-step-target="2">
+          <span class="stepper-number">02</span>
+          <span class="stepper-copy"><strong>السائق والمركبة</strong><small>بيانات النقل</small></span>
+        </button>
+
+        <button type="button" class="stepper-item" data-step-target="3">
+          <span class="stepper-number">03</span>
+          <span class="stepper-copy"><strong>الوزن التقديري</strong><small>تفاصيل الأنقاض</small></span>
+        </button>
+      </nav>
+
+      <p class="counter" aria-live="polite">
+        <span>الخطوة الحالية</span>
+        <strong><span data-current-step>01</span> / 03</strong>
+      </p>
+
+      <form class="form" data-permit-form="تصريح نقل الأنقاض" data-permit-home="../index.html" novalidate>
+
+        <section class="step" data-step="1">
+          <div class="card">
+
+            <div class="card-head">
+              <h2 class="card-title">
+                <span class="card-index">01</span>
+                <img src="../assets/images/file-text-pineal-700.svg" alt="" />
+                بيانات مقدم الطلب
+              </h2>
+              <span class="card-note">بيانات طلب نقل الأنقاض</span>
+            </div>
+
+            <div class="grid">
+              <div class="field">
+                <label class="label" for="applicant">مقدم الطلب</label>
+                <input id="applicant" name="applicant" class="input" type="text" autocomplete="name" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="phone">رقم الموبايل للتواصل</label>
+                <input id="phone" name="phone" class="input input-mono" type="tel" inputmode="tel" autocomplete="tel" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="rubble_location">تحديد موقع الأنقاض</label>
+                <input id="rubble_location" name="rubble_location" class="input" type="text"
+                       placeholder="اكتب موقع الأنقاض" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="landfill">المكب</label>
+                <select id="landfill" name="landfill" class="input">
+                  <option value="" selected disabled>اختر المكب</option>
+                  <option value="landfill_1">دوما</option>
+                  <option value="landfill_2">التل</option>
+                  <option value="landfill_2">الهامة</option>
+                  <option value="landfill_2">السليمة</option>
+                  <option value="landfill_2">حفير التحتا</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="button" class="btn-primary" data-goto-step="2">
+                التالي <span aria-hidden="true">←</span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="step" data-step="2">
+          <div class="card">
+
+            <div class="card-head">
+              <h2 class="card-title">
+                <span class="card-index">02</span>
+                <img src="../assets/images/truck-pineal-700.svg" alt="" />
+                بيانات السائق والمركبة
+              </h2>
+              <span class="card-note">بيانات المسؤول عن النقل</span>
+            </div>
+
+            <div class="grid">
+              <div class="field">
+                <label class="label" for="driver_name">اسم السائق الثلاثي</label>
+                <input id="driver_name" name="driver_name" class="input" type="text" autocomplete="name" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="national_id">الرقم الوطني</label>
+                <input id="national_id" name="national_id" class="input input-mono" type="text" inputmode="numeric" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="identity">صورة الهوية (الوجهين)</label>
+                <input id="identity" name="identity" class="input" type="file" accept="image/*"
+                       multiple capture="environment" data-file-input aria-describedby="identity_hint" />
+                <span class="hint" id="identity_hint">يمكنك التصوير بالكاميرا أو اختيار الصورتين من الاستديو.</span>
+              </div>
+
+              <div class="field">
+                <label class="label" for="vehicle_number">رقم المركبة</label>
+                <input id="vehicle_number" name="vehicle_number" class="input input-mono" type="text" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="vehicle_docs">صورة أوراق المركبة</label>
+                <input id="vehicle_docs" name="vehicle_docs" class="input" type="file"
+                       accept="image/*,.pdf" data-file-input aria-describedby="vehicle_docs_hint" />
+                <span class="hint" id="vehicle_docs_hint">لم يتم اختيار ملف.</span>
+              </div>
+
+              <div class="field">
+                <label class="label" for="empty_weight">
+                  وزن المركبة بدون حمولة <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input id="empty_weight" name="empty_weight" class="input input-mono" type="number"
+                       min="0" step="0.01" placeholder="كغ" required />
+              </div>
+
+              <div class="field">
+                <label class="label" for="loaded_weight">وزن المركبة مع الحمولة</label>
+                <input id="loaded_weight" name="loaded_weight" class="input input-mono" type="number"
+                       min="0" step="0.01" placeholder="كغ" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="loaded_height">ارتفاع المركبة مع الحمولة</label>
+                <input id="loaded_height" name="loaded_height" class="input input-mono" type="number"
+                       min="0" step="0.01" placeholder="متر" />
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="button" class="btn-ghost" data-goto-step="1">
+                <span aria-hidden="true">→</span> السابق
+              </button>
+              <button type="button" class="btn-primary" data-goto-step="3">
+                التالي <span aria-hidden="true">←</span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="step" data-step="3">
+          <div class="card">
+
+            <div class="card-head">
+              <h2 class="card-title">
+                <span class="card-index">03</span>
+                <img src="../assets/images/file-text-pineal-700.svg" alt="" />
+                الوزن التقديري للأنقاض
+              </h2>
+              <span class="card-note">أدخل كمية الأنقاض بالكيلوغرام</span>
+            </div>
+
+            <div data-repeater="rubble" data-repeater-max="20" data-rubble-price="70">
+
+              <div class="table-wrap">
+                <table class="table quantities-table">
+                  <thead>
+                    <tr>
+                      <th>نوع الأنقاض</th>
+                      <th>وحدة القياس</th>
+                      <th>الكمية</th>
+                      <th>التكلفة</th>
+                      <th>ملاحظات</th>
+                      <th aria-label="حذف"></th>
+                    </tr>
+                  </thead>
+                  <tbody data-repeater-rows>
+                    <tr data-repeater-row>
+                      <td>
+                        <input class="input" type="text" name="rubble[0][type]"
+                               placeholder="مثال: أنقاض بناء" aria-label="نوع الأنقاض" />
+                      </td>
+                      <td>
+                        <input class="input" type="text" value="كيلو" readonly aria-label="وحدة القياس" />
+                        <input type="hidden" name="rubble[0][unit]" value="kilogram" />
+                      </td>
+                      <td>
+                        <input class="input input-mono" type="number" min="0" step="1" name="rubble[0][count]"
+                               placeholder="الكمية بالكيلو" aria-label="الكمية" data-rubble-quantity />
+                      </td>
+                      <td>
+                        <input class="input input-mono" type="text" value="0 ل.س" readonly
+                               aria-label="التكلفة" data-rubble-cost />
+                        <input type="hidden" name="rubble[0][cost]" value="0" data-rubble-cost-value />
+                      </td>
+                      <td>
+                        <input class="input" type="text" name="rubble[0][notes]"
+                               placeholder="ملاحظات" aria-label="ملاحظات" />
+                      </td>
+                      <td>
+                        <button class="remove-btn" type="button" data-repeater-remove
+                                aria-label="حذف صف الأنقاض">×</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p class="empty-msg" data-repeater-empty hidden>لا توجد كميات أنقاض مضافة حالياً.</p>
+              </div>
+
+              <template data-repeater-template>
+                <tr data-repeater-row>
+                  <td>
+                    <input class="input" type="text" name="rubble[0][type]"
+                           placeholder="مثال: أنقاض بناء" aria-label="نوع الأنقاض" />
+                  </td>
+                  <td>
+                    <input class="input" type="text" value="كيلو" readonly aria-label="وحدة القياس" />
+                    <input type="hidden" name="rubble[0][unit]" value="kilogram" />
+                  </td>
+                  <td>
+                    <input class="input input-mono" type="number" min="0" step="1" name="rubble[0][count]"
+                           placeholder="الكمية بالكيلو" aria-label="الكمية" data-rubble-quantity />
+                  </td>
+                  <td>
+                    <input class="input input-mono" type="text" value="0 ل.س" readonly
+                           aria-label="التكلفة" data-rubble-cost />
+                    <input type="hidden" name="rubble[0][cost]" value="0" data-rubble-cost-value />
+                  </td>
+                  <td>
+                    <input class="input" type="text" name="rubble[0][notes]"
+                           placeholder="ملاحظات" aria-label="ملاحظات" />
+                  </td>
+                  <td>
+                    <button class="remove-btn" type="button" data-repeater-remove
+                            aria-label="حذف صف الأنقاض">×</button>
+                  </td>
+                </tr>
+              </template>
+
+              <button type="button" class="btn-add" data-repeater-add>
+                <span aria-hidden="true">+</span> إضافة كمية
+              </button>
+
+              <p class="total" aria-live="polite">
+                <span>التكلفة الإجمالية</span>
+                <strong data-rubble-total>0 ل.س</strong>
+              </p>
+
+            </div>
+
+            <div class="actions">
+              <button type="button" class="btn-ghost" data-goto-step="2">
+                <span aria-hidden="true">→</span> السابق
+              </button>
+              <button type="submit" class="btn-primary">
+                إرسال الطلب <span aria-hidden="true">✓</span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+      </form>
+
+    </main>
+
+  </div>
+
+  <script src="../js/rubble.js"></script>
+</body>
+
+</html>

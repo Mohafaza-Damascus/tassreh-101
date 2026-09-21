@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#064239" />
+  <meta name="description" content="تسجيل دخول الجهات الحكومية المخولة بتقديم طلبات الحفر." />
+
+  <link rel="icon" type="image/png" href="../assets/images/damascus-eagle.png" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <title>تسجيل الدخول | تصريح حفر</title>
+</head>
+
+<body class="login-shell">
+
+  <div class="login-container">
+
+    <header class="login-header">
+      <img class="login-logo" src="../assets/images/logo.png" alt="شعار محافظة دمشق" />
+      <h1>تصريح حفر</h1>
+    </header>
+
+    <main class="login-card">
+
+      <div class="login-card-head">
+        <h2 class="login-card-title">تسجيل دخول الجهات الحكومية المخولة</h2>
+      </div>
+
+      <form class="login-form" id="elogin-form" novalidate>
+
+        <p class="login-notice">
+          <strong>تنبيه مهم:</strong>
+          هذا التصريح مخصص فقط للجهات الحكومية المخولة بتقديم طلبات الحفر.
+        </p>
+
+        <div class="login-fields">
+          <div class="login-field">
+            <label class="login-label" for="government_username">اسم المستخدم</label>
+            <input id="government_username" name="government_username" class="login-input" type="text"
+                   autocomplete="username" placeholder="أدخل اسم المستخدم" required />
+          </div>
+
+          <div class="login-field">
+            <label class="login-label" for="government_password">كلمة المرور</label>
+            <input id="government_password" name="government_password" class="login-input" type="password"
+                   autocomplete="current-password" placeholder="أدخل كلمة المرور" required />
+          </div>
+        </div>
+
+        <p class="login-error" id="elogin-error" hidden role="alert">
+          يرجى إدخال اسم المستخدم وكلمة المرور.
+        </p>
+
+        <div class="login-actions">
+          <button type="submit" class="login-submit">
+            تسجيل الدخول <span aria-hidden="true">←</span>
+          </button>
+          <a class="login-back" href="../index.html">العودة للرئيسية</a>
+        </div>
+
+      </form>
+
+    </main>
+
+  </div>
+
+  <script src="../js/excavation-login.js"></script>
+</body>
+
+</html>

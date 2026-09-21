@@ -1,0 +1,414 @@
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#064239" />
+  <meta name="description" content="نموذج تقديم طلب تصريح موزع مواد بناء." />
+
+  <link rel="icon" type="image/png" href="../assets/images/damascus-eagle.png" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <title>طلب تصريح موزع مواد بناء | منصة تصريح</title>
+</head>
+
+<body class="shell">
+
+  <div class="workspace">
+
+    <header class="topbar">
+      <div class="brand">
+        <img src="../assets/images/logo.png" alt="شعار محافظة دمشق" />
+      </div>
+      <h1 class="page-title">طلب تصريح موزع مواد بناء</h1>
+      <a class="back-link" href="../index.html">
+        <span aria-hidden="true">←</span> أنواع التصاريح
+      </a>
+    </header>
+
+    <main class="page">
+
+      <nav class="stepper" aria-label="مراحل تصريح موزع مواد بناء">
+        <div class="stepper-line" aria-hidden="true"><span data-step-progress></span></div>
+
+        <button type="button" class="stepper-item" data-step-target="1">
+          <span class="stepper-number">01</span>
+          <span class="stepper-copy"><strong>بيانات الرخصة</strong><small>المعلومات الأساسية</small></span>
+        </button>
+
+        <button type="button" class="stepper-item" data-step-target="2">
+          <span class="stepper-number">02</span>
+          <span class="stepper-copy"><strong>السائق والمركبة</strong><small>بيانات النقل</small></span>
+        </button>
+
+        <button type="button" class="stepper-item" data-step-target="3">
+          <span class="stepper-number">03</span>
+          <span class="stepper-copy"><strong>المواد المصرح بها</strong><small>تفاصيل التوزيع</small></span>
+        </button>
+      </nav>
+
+      <p class="counter" aria-live="polite">
+        <span>الخطوة الحالية</span>
+        <strong><span data-current-step>01</span> / 03</strong>
+      </p>
+
+      <form data-permit-form="طلب تصريح موزع مواد بناء" data-permit-home="../index.html" novalidate>
+
+        <section class="step" data-step="1">
+          <div class="card">
+
+            <div class="card-head">
+              <h2 class="card-title">
+                <span class="card-index">01</span>
+                <img class="card-icon" src="../assets/images/file-text-pineal-700.svg" alt="" />
+                بيانات الرخصة
+              </h2>
+              <span class="card-note">بيانات طلب التوزيع</span>
+            </div>
+
+            <div class="grid">
+              <div class="field">
+                <label class="label" for="license_type">نوع الرخصة</label>
+                <select id="license_type" name="license_type" class="input">
+                  <option value="" selected disabled>اختر نوع الرخصة</option>
+                  <option value="building">رخصة بناء</option>
+                  <option value="renovation">رخصة ترميم</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label class="label" for="license_owner">اسم صاحب الرخصة</label>
+                <input id="license_owner" name="license_owner" class="input" type="text" autocomplete="name" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="license_image">صورة الرخصة</label>
+                <input id="license_image" name="license_image" class="input" type="file"
+                       accept="image/*,.pdf" data-file-input aria-describedby="license_image_hint" />
+                <span class="hint" id="license_image_hint">لم يتم اختيار ملف.</span>
+              </div>
+
+              <div class="field">
+                <label class="label" for="contact_phone">رقم التواصل</label>
+                <input id="contact_phone" name="contact_phone" class="input input-mono" type="tel"
+                       inputmode="tel" autocomplete="tel" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="origin">تحديد موقع الانطلاق</label>
+                <input id="origin" name="origin" class="input" type="text" placeholder="اكتب موقع الانطلاق" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="destination">تحديد موقع الوجهة</label>
+                <input id="destination" name="destination" class="input" type="text" placeholder="اكتب موقع الوجهة" />
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="button" class="btn-primary" data-goto-step="2">
+                التالي <span aria-hidden="true">←</span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="step" data-step="2">
+          <div class="card">
+
+            <div class="card-head">
+              <h2 class="card-title">
+                <span class="card-index">02</span>
+                <img class="card-icon" src="../assets/images/truck-pineal-700.svg" alt="" />
+                بيانات السائق والمركبة
+              </h2>
+              <span class="card-note">بيانات المسؤول عن النقل</span>
+            </div>
+
+            <div class="grid">
+              <div class="field">
+                <label class="label" for="driver_name">اسم السائق الثلاثي</label>
+                <input id="driver_name" name="driver_name" class="input" type="text" autocomplete="name" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="national_id">الرقم الوطني</label>
+                <input id="national_id" name="national_id" class="input input-mono" type="text" inputmode="numeric" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="identity">صورة الهوية</label>
+                <input id="identity" name="identity" class="input" type="file" accept="image/*"
+                       capture="environment" data-file-input aria-describedby="identity_hint" />
+                <span class="hint" id="identity_hint">يمكنك التقاط صورة أو اختيارها من الاستديو.</span>
+              </div>
+
+              <div class="field">
+                <label class="label" for="vehicle_number">رقم المركبة</label>
+                <input id="vehicle_number" name="vehicle_number" class="input input-mono" type="text" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="vehicle_docs">صورة أوراق المركبة</label>
+                <input id="vehicle_docs" name="vehicle_docs" class="input" type="file"
+                       accept="image/*,.pdf" data-file-input aria-describedby="vehicle_docs_hint" />
+                <span class="hint" id="vehicle_docs_hint">لم يتم اختيار ملف.</span>
+              </div>
+
+              <div class="field">
+                <label class="label" for="empty_weight">وزن المركبة بدون حمولة</label>
+                <input id="empty_weight" name="empty_weight" class="input input-mono" type="number"
+                       min="0" step="0.01" placeholder="كغ" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="loaded_weight">وزن المركبة مع الحمولة</label>
+                <input id="loaded_weight" name="loaded_weight" class="input input-mono" type="number"
+                       min="0" step="0.01" placeholder="كغ" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="loaded_height">ارتفاع المركبة مع الحمولة</label>
+                <input id="loaded_height" name="loaded_height" class="input input-mono" type="number"
+                       min="0" step="0.01" placeholder="متر" />
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="button" class="btn-ghost" data-goto-step="1">
+                <span aria-hidden="true">→</span> السابق
+              </button>
+              <button type="button" class="btn-primary" data-goto-step="3">
+                التالي <span aria-hidden="true">←</span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="step" data-step="3">
+          <div class="card">
+
+            <div class="card-head">
+              <h2 class="card-title">
+                <span class="card-index">03</span>
+                <img class="card-icon" src="../assets/images/file-text-pineal-700.svg" alt="" />
+                المواد المصرح بتوزيعها
+              </h2>
+              <span class="card-note">أضف كل مادة في صف مستقل</span>
+            </div>
+
+            <div data-repeater="materials" data-repeater-max="20">
+              <div class="table-wrap">
+                <table class="table materials-table">
+                  <thead>
+                    <tr>
+                      <th>المادة</th>
+                      <th>الكمية (الوحدة)</th>
+                      <th>العدد</th>
+                      <th>ملاحظات</th>
+                      <th aria-label="حذف"></th>
+                    </tr>
+                  </thead>
+                  <tbody data-repeater-rows>
+                    <tr data-repeater-row>
+                      <td>
+                        <select class="input" name="materials[0][material]" aria-label="المادة">
+                          <option value="" selected disabled>اختر المادة</option>
+                          <option value="iron">حديد</option>
+                          <option value="cement">اسمنت</option>
+                          <option value="block">بلوك</option>
+                          <option value="wood">خشب</option>
+                          <option value="concrete">باطون</option>
+                          <option value="sand_gravel">بحص ورمل</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select class="input" name="materials[0][unit]" aria-label="وحدة القياس">
+                          <option value="" selected disabled>اختر الوحدة</option>
+                          <option value="ton">طن</option>
+                          <option value="cubic_meter">متر مكعب</option>
+                          <option value="kilogram">كغ</option>
+                          <option value="board">لوح</option>
+                          <option value="other">غير ذلك</option>
+                        </select>
+                      </td>
+                      <td>
+                        <input class="input input-mono" type="number" min="0" step="0.01"
+                               name="materials[0][count]" aria-label="العدد" />
+                      </td>
+                      <td>
+                        <input class="input" type="text" name="materials[0][notes]" aria-label="ملاحظات" />
+                      </td>
+                      <td>
+                        <button class="remove-btn" type="button" data-repeater-remove
+                                aria-label="حذف صف المادة">×</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p class="empty-msg" data-repeater-empty hidden>لا توجد مواد مضافة حالياً.</p>
+              </div>
+
+              <template data-repeater-template>
+                <tr data-repeater-row>
+                  <td>
+                    <select class="input" name="materials[0][material]" aria-label="المادة">
+                      <option value="" selected disabled>اختر المادة</option>
+                      <option value="iron">حديد</option>
+                      <option value="cement">اسمنت</option>
+                      <option value="block">بلوك</option>
+                      <option value="wood">خشب</option>
+                      <option value="concrete">باطون</option>
+                      <option value="sand_gravel">بحص ورمل</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="input" name="materials[0][unit]" aria-label="وحدة القياس">
+                      <option value="" selected disabled>اختر الوحدة</option>
+                      <option value="ton">طن</option>
+                      <option value="cubic_meter">متر مكعب</option>
+                      <option value="kilogram">كغ</option>
+                      <option value="board">لوح</option>
+                      <option value="other">غير ذلك</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input class="input input-mono" type="number" min="0" step="0.01"
+                           name="materials[0][count]" aria-label="العدد" />
+                  </td>
+                  <td>
+                    <input class="input" type="text" name="materials[0][notes]" aria-label="ملاحظات" />
+                  </td>
+                  <td>
+                    <button class="remove-btn" type="button" data-repeater-remove
+                            aria-label="حذف صف المادة">×</button>
+                  </td>
+                </tr>
+              </template>
+
+              <button type="button" class="btn-add" data-repeater-add>
+                <span aria-hidden="true">+</span> إضافة مادة
+              </button>
+            </div>
+
+            <section class="machinery-section" data-repeater="machinery" data-repeater-max="20">
+              <div class="machinery-head">
+                <div>
+                  <h3>الآليات المستخدمة</h3>
+                  <p>أضف كل آلية في صف مستقل مع أبعادها ووزنها.</p>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table class="table machinery-table">
+                  <thead>
+                    <tr>
+                      <th>نوع الآلية</th>
+                      <th>العدد</th>
+                      <th>ارتفاع الآلية</th>
+                      <th>وزن الآلية</th>
+                      <th>ملاحظات</th>
+                      <th aria-label="حذف"></th>
+                    </tr>
+                  </thead>
+                  <tbody data-repeater-rows>
+                    <tr data-repeater-row>
+                      <td>
+                        <select class="input" name="machinery[0][type]" aria-label="نوع الآلية">
+                          <option value="" selected disabled>اختر نوع الآلية</option>
+                          <option value="mixer">جبالة</option>
+                          <option value="digger">باغير</option>
+                        </select>
+                      </td>
+                      <td>
+                        <input class="input input-mono" type="number" min="1" step="1"
+                               name="machinery[0][count]" aria-label="العدد" />
+                      </td>
+                      <td>
+                        <input class="input input-mono" type="number" min="0" step="0.01"
+                               name="machinery[0][height]" placeholder="متر" aria-label="ارتفاع الآلية" />
+                      </td>
+                      <td>
+                        <input class="input input-mono" type="number" min="0" step="0.01"
+                               name="machinery[0][weight]" placeholder="كغ" aria-label="وزن الآلية" />
+                      </td>
+                      <td>
+                        <input class="input" type="text" name="machinery[0][notes]" aria-label="ملاحظات" />
+                      </td>
+                      <td>
+                        <button class="remove-btn" type="button" data-repeater-remove
+                                aria-label="حذف صف الآلية">×</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p class="empty-msg" data-repeater-empty hidden>لا توجد آليات مضافة حالياً.</p>
+              </div>
+
+              <template data-repeater-template>
+                <tr data-repeater-row>
+                  <td>
+                    <select class="input" name="machinery[0][type]" aria-label="نوع الآلية">
+                      <option value="" selected disabled>اختر نوع الآلية</option>
+                      <option value="mixer">جبالة</option>
+                      <option value="digger">باغير</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input class="input input-mono" type="number" min="1" step="1"
+                           name="machinery[0][count]" aria-label="العدد" />
+                  </td>
+                  <td>
+                    <input class="input input-mono" type="number" min="0" step="0.01"
+                           name="machinery[0][height]" placeholder="متر" aria-label="ارتفاع الآلية" />
+                  </td>
+                  <td>
+                    <input class="input input-mono" type="number" min="0" step="0.01"
+                           name="machinery[0][weight]" placeholder="كغ" aria-label="وزن الآلية" />
+                  </td>
+                  <td>
+                    <input class="input" type="text" name="machinery[0][notes]" aria-label="ملاحظات" />
+                  </td>
+                  <td>
+                    <button class="remove-btn" type="button" data-repeater-remove
+                            aria-label="حذف صف الآلية">×</button>
+                  </td>
+                </tr>
+              </template>
+
+              <button type="button" class="btn-add" data-repeater-add>
+                <span aria-hidden="true">+</span> إضافة آلية
+              </button>
+            </section>
+
+            <div class="actions">
+              <button type="button" class="btn-ghost" data-goto-step="2">
+                <span aria-hidden="true">→</span> السابق
+              </button>
+              <button type="submit" class="btn-primary">
+                إرسال الطلب <span aria-hidden="true">✓</span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+      </form>
+
+    </main>
+
+  </div>
+
+  <script src="../js/distributor.js"></script>
+</body>
+
+</html>
+

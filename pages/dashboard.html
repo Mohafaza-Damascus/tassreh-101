@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#064239" />
+  <meta name="description" content="لوحة تحكم لمتابعة حالة التصاريح ومساراتها." />
+
+  <link rel="icon" type="image/png" href="../assets/images/damascus-eagle.png" />
+
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <title>لوحة التحكم | منصة تصريح</title>
+</head>
+
+<body>
+
+  <header class="dash-topbar">
+    <div class="dash-brand">
+      <img src="../assets/images/logo.png" alt="شعار محافظة دمشق" />
+      <span>منصة تصريح</span>
+    </div>
+
+    <div class="dash-topbar-actions">
+      <span class="dash-user-badge" data-auth-username></span>
+      <button type="button" class="dash-btn" data-auth-logout>تسجيل الخروج</button>
+    </div>
+  </header>
+
+  <main class="dash">
+
+    <div class="dash-head">
+      <h1>لوحة التحكم</h1>
+    </div>
+
+    <section class="dash-section" aria-label="ملخص التصاريح">
+      <h2 class="dash-section-label">ملخص التصاريح (اضغط للتصفية السريعة)</h2>
+
+      <div class="dash-stats">
+        <div class="dash-stat" data-target-status="all" role="button" tabindex="0">
+          <span class="dash-stat-value" data-stat="all">0</span>
+          <span class="dash-stat-label">إجمالي التصاريح</span>
+        </div>
+
+        <div class="dash-stat" data-target-status="granted" role="button" tabindex="0">
+          <span class="dash-stat-value" data-stat="granted">0</span>
+          <span class="dash-stat-label">ممنوحة</span>
+        </div>
+
+        <div class="dash-stat" data-target-status="active" role="button" tabindex="0">
+          <span class="dash-stat-value" data-stat="active">0</span>
+          <span class="dash-stat-label">فعّالة</span>
+        </div>
+
+        <div class="dash-stat" data-target-status="progress" role="button" tabindex="0">
+          <span class="dash-stat-value" data-stat="progress">0</span>
+          <span class="dash-stat-label">قيد الإنجاز</span>
+        </div>
+
+        <div class="dash-stat" data-target-status="rejected" role="button" tabindex="0">
+          <span class="dash-stat-value" data-stat="rejected">0</span>
+          <span class="dash-stat-label">مرفوضة</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="dash-section" aria-label="فلاتر التصاريح">
+      <h2 class="dash-section-label">تصفية وبحث</h2>
+
+      <div class="dash-filters-card">
+        <div class="dash-filters-row">
+
+          <div class="dash-filter-field">
+            <label class="dash-filter-label" for="filter_status">الحالة:</label>
+            <select id="filter_status" class="dash-filter-input" data-filter="status">
+              <option value="all">الكل</option>
+              <option value="granted">ممنوحة</option>
+              <option value="active">فعّالة (خلال ٢٤ ساعة)</option>
+              <option value="expired">منتهية</option>
+              <option value="progress">قيد الإنجاز</option>
+              <option value="rejected">مرفوضة</option>
+            </select>
+          </div>
+
+          <div class="dash-filter-field">
+            <label class="dash-filter-label" for="filter_type">النوع:</label>
+            <select id="filter_type" class="dash-filter-input" data-filter="type">
+              <option value="all">الكل</option>
+              <option value="transport">نقل مواد ومعدات بناء</option>
+              <option value="rubble">نقل أنقاض</option>
+              <option value="excavation">حفر</option>
+            </select>
+          </div>
+
+          <div class="dash-filter-field is-wide">
+            <label class="dash-filter-label" for="filter_search">بحث:</label>
+            <input id="filter_search" class="dash-filter-input" type="search" data-filter="search"
+                   placeholder="رقم التصريح أو مقدم الطلب..." />
+          </div>
+
+          <button type="button" class="dash-btn" data-filters-reset>مسح الفلاتر</button>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="dash-section" aria-label="قائمة التصاريح">
+      <h2 class="dash-section-label">
+        <span>قائمة التصاريح</span>
+        <span class="dash-permits-count" data-permits-count>0</span>
+      </h2>
+
+      <div class="dash-permits-list" data-permits-list></div>
+      <p class="dash-permits-empty" data-permits-empty hidden>لا توجد تصاريح مطابقة للفلاتر المحددة.</p>
+    </section>
+
+  </main>
+
+  <div class="dash-modal" data-permit-modal hidden role="dialog" aria-modal="true"
+       aria-labelledby="permit-modal-title">
+    <div class="dash-modal-backdrop" data-modal-close></div>
+
+    <div class="dash-modal-panel">
+      <header class="dash-modal-header">
+        <h2 id="permit-modal-title" data-modal-title>تفاصيل التصريح</h2>
+        <button type="button" class="dash-modal-close" data-modal-close aria-label="إغلاق">×</button>
+      </header>
+
+      <div class="dash-modal-body">
+        <div class="dash-detail-grid" data-modal-details></div>
+
+        <div class="dash-map-section" data-map-section hidden>
+          <h3 class="dash-map-title">مسار التصريح على الخريطة</h3>
+
+          <div class="dash-map-legend">
+            <span class="dash-legend dash-legend-origin">نقطة الانطلاق</span>
+            <span class="dash-legend dash-legend-dest">الوجهة</span>
+            <span class="dash-legend dash-legend-current">الموقع الحالي</span>
+          </div>
+
+          <div class="dash-map" id="permit-map"></div>
+        </div>
+      </div>
+
+      <footer class="dash-modal-footer">
+        <button type="button" class="dash-btn" data-modal-close>إغلاق</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+
+</html>
